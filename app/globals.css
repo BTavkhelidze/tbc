@@ -17,8 +17,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: black;
+  background: white;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,4 +39,13 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.main_container {
+  height: 100vh;
+  margin: 0 auto;
+
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }

@@ -1,0 +1,90 @@
+.headerContainerWrapper {
+  width: 100%;
+  border-bottom: 1px solid black;
+  z-index: 100;
+}
+
+.header_container_wrapper {
+  width: 100%;
+  border-bottom: 1px solid black;
+  z-index: 100;
+}
+.header_container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  position: sticky;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+}
+
+.header_container nav ul {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.header_container nav ul li {
+  cursor: pointer;
+  position: relative;
+}
+
+.header_container nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.header_container nav ul li::after {
+  content: '';
+  width: 0%;
+  height: 1px;
+  position: absolute;
+  background-color: black;
+  left: 0;
+  bottom: -6px;
+  transition: all 0.5s;
+}
+
+.header_container nav ul li:hover::after {
+  width: 100%;
+}
+
+.header_container div {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_container div p {
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  transition: all 0.5s;
+}
+
+.header_container div p:hover {
+  background-color: black;
+  color: #faf8f1;
+}
+
+.header_container div .profile_wrapper {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_container div .profile_wrapper a img {
+  width: 34px;
+  height: 34px;
+}
