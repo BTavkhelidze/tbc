@@ -9,7 +9,7 @@ import style from './Search.module.css';
 
 const Search = () => {
   const [search, setSearch] = useState('');
-  const debouncedSearch = useDebounce(search, 2000);
+  const debouncedSearch = useDebounce(search, 1000);
   const router = useRouter();
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import style from './singleProduct.module.css'; // Ensure this file exists and is a CSS Module
+import style from './singleProduct.module.css';
 
 export async function generateStaticParams() {
   const res = await fetch(`https://dummyjson.com/products`);

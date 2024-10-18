@@ -1,0 +1,6 @@
+.sort_wrappe {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Centers horizontally */
+  align-items: center;
+}

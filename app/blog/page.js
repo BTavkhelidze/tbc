@@ -4,8 +4,11 @@ import style from './Blogs.module.css';
 export default async function Blogs({ searchParams }) {
   console.log('search', searchParams);
   console.log('hello');
-
-  const query = await fetch('https://dummyjson.com/posts');
+  let sortBy = '';
+  let order;
+  const query = await fetch(
+    `https://dummyjson.com/posts?sortBy=title&order=asc`
+  );
   const { posts } = await query.json();
 
   return (

@@ -1,5 +1,7 @@
 .searchButton {
-  padding: 20px 60px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
 }
 .box {
   height: 30px;
