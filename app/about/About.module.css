@@ -1,0 +1,33 @@
+.about_container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 60px;
+}
+.about_container .title_wrapper {
+  width: 180px;
+
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  margin-right: 30px;
+}
+.about_container .title_wrapper .title {
+  margin-bottom: 200px;
+}
+
+.about_container .aU_description_wrapper {
+  max-width: 560px;
+  margin: 80px auto;
+}
+.about_container .aU_description_wrapper .aU_description {
+  text-align: center;
+  background-color: none;
+  padding: 50px;
+  line-height: 24px;
+  border-radius: 12px;
+}

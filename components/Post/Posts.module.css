@@ -1,0 +1,81 @@
+.post_wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.post_wrapper:hover {
+  transition: all 0.5s;
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn_reactions_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.btn_reactions_wrapper > button {
+  max-width: 400px;
+  width: 100%;
+  margin-right: 10px;
+  padding: 14px 16px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  color: black;
+  border: 1px solid black;
+}
+
+.btn_reactions_wrapper > button:hover {
+  background-color: black;
+  color: #faf8f1;
+  transition: all 0.5s;
+}
+
+.reactions_wrapper {
+  cursor: pointer;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  background-color: white;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.reactions:nth-child(1) {
+  border-right: 1px solid black;
+  height: 100%;
+  padding-right: 10px;
+}
+.reactions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px;
+}
+
+.reactions_image {
+  width: 20px;
+  height: 20px;
+}
+
+.like:hover {
+  color: #ff4500;
+}
+
+.dislike:hover {
+  color: #ff4500;
+}

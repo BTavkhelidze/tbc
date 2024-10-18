@@ -19,6 +19,7 @@ const Products = async ({ searchParams }) => {
   console.log('searchparams ', search);
 
   const products = await getProducts(search);
+  console.log(products);
 
   return (
     <main>
@@ -29,6 +30,9 @@ const Products = async ({ searchParams }) => {
 )} */}
       <Search />
       <div className={style.content_container}>
+        {products.length < 1 && (
+          <p className={style.product_not_found}>product not found</p>
+        )}
         {products.map((product) => (
           <Card productsObj={product} key={product.id} />
         ))}

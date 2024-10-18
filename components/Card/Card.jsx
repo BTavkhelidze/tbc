@@ -7,7 +7,7 @@ const Card = ({ productsObj }) => {
   const router = useRouter();
 
   const handleClick = (id) => {
-    router.push(`./product/${id}`);
+    router.push(`./products/${id}`);
   };
 
   return (
