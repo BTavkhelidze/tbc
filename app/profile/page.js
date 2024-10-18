@@ -1,4 +1,5 @@
 import style from './Profile.module.css';
+import Image from 'next/image';
 
 const Profile = () => {
   return (
@@ -6,7 +7,7 @@ const Profile = () => {
       <section className={style.description_content_wrapper}>
         <div className={style.bakcground_decoration}>
           <div className={style.profile_image}>
-            <img
+            <Image
               src='https://ssl.gstatic.com/onebox/media/sports/photos/ufc/3605_rZmNsA_96x96.png'
               alt='profile image'
             />

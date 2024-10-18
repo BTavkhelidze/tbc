@@ -1,4 +1,5 @@
 import style from './singleProduct.module.css';
+import Image from 'next/image';
 
 export async function generateStaticParams() {
   const res = await fetch(`https://dummyjson.com/products`);
@@ -23,17 +24,17 @@ export default async function Product({ params }) {
     <main className={style.product_container}>
       <div className={style.wrapper_img_details}>
         <div className={style.product_image_wrapper}>
-          <img alt={product.description} src={product.images[0]} />
+          <Image alt={product.description} src={product.images[0]} />
 
           <div className={style.other_pictures}>
             {product.images.length > 0 && (
-              <img alt={product.description} src={product.images[0]} />
+              <Image alt={product.description} src={product.images[0]} />
             )}
             {product.images.length > 1 && (
-              <img alt={product.description} src={product.images[1]} />
+              <Image alt={product.description} src={product.images[1]} />
             )}
             {product.images.length > 2 && (
-              <img alt={product.description} src={product.images[2]} />
+              <Image alt={product.description} src={product.images[2]} />
             )}
           </div>
         </div>
@@ -77,7 +78,7 @@ export default async function Product({ params }) {
           {product.reviews.map((review, i) => (
             <div className={style.review_wrapper} key={i}>
               <div className={style.customer}>
-                <img
+                <Image
                   src='https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-1024.png'
                   alt='Customer'
                 />

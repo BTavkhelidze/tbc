@@ -1,5 +1,6 @@
 // 'use client';
 import style from './Header.module.css';
+import Image from 'next/image';
 
 import Link from 'next/link';
 const Header = () => {
@@ -29,7 +30,7 @@ const Header = () => {
         <div>
           <div className={style.profile_wrapper}>
             <Link href='/profile'>
-              <img
+              <Image
                 src='https://www.svgrepo.com/show/43426/profile.svg'
                 alt=''
               />

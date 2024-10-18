@@ -1,4 +1,5 @@
 import style from './singleBlog.module.css';
+import Image from 'next/image';
 
 export async function generateStaticParams() {
   const res = await fetch(`https://dummyjson.com/posts`);
@@ -27,7 +28,7 @@ export default async function Product({ params }) {
         </section>
         <section className={style.post_content_wrapper}>
           <div className={style.post_img_wrapper}>
-            <img src='https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg' />
+            <Image src='https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg' />
             <span>UserId: {post.userId}</span>
           </div>
           <h4>{post.title}</h4>
@@ -38,7 +39,7 @@ export default async function Product({ params }) {
 
           <div className={style.single_reaction_Wrapper}>
             <span className={`${style.reactions} ${style.like}`}>
-              <img
+              <Image
                 className={style.reactions_image}
                 src='https://www.svgrepo.com/show/1198/like.svg'
                 alt='likes button'
@@ -47,7 +48,7 @@ export default async function Product({ params }) {
             </span>
             <span className={`${style.reactions} ${style.dislike}`}>
               {post.reactions.dislikes}
-              <img
+              <Image
                 className={style.reactions_image}
                 src='https://www.svgrepo.com/show/504867/show-youtube-dislikes.svg'
                 alt='likes button'

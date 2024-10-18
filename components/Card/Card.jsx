@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import style from './Card.module.css';
+import Image from 'next/image';
 
 const Card = ({ productsObj }) => {
   const router = useRouter();
@@ -13,7 +14,7 @@ const Card = ({ productsObj }) => {
   return (
     <div className={style.card}>
       <div className={style.image_wrapper}>
-        <img alt='Blink Video Doorbell' src={productsObj.images[0]} />
+        <Image alt='Blink Video Doorbell' src={productsObj.images[0]} />
       </div>
       <div className={style.card_desc_wrapper}>
         <h1 className={style.title}>{productsObj.title}</h1>

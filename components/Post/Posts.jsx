@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import style from './Posts.module.css';
+import Image from 'next/image';
 
 const Posts = ({ post }) => {
   const router = useRouter();
@@ -17,7 +18,7 @@ const Posts = ({ post }) => {
       <div className={style.btn_reactions_wrapper}>
         <div className={style.reactions_wrapper}>
           <span className={`${style.reactions} ${style.like}`}>
-            <img
+            <Image
               className={style.reactions_image}
               src='https://www.svgrepo.com/show/1198/like.svg'
               alt='likes button'
@@ -26,7 +27,7 @@ const Posts = ({ post }) => {
           </span>
           <span className={`${style.reactions} ${style.dislike}`}>
             {post.reactions.dislikes}
-            <img
+            <Image
               className={style.reactions_image}
               src='https://www.svgrepo.com/show/504867/show-youtube-dislikes.svg'
               alt='dislikes button'
