@@ -1,5 +1,5 @@
 import style from './products.module.css';
-import Card from '@/components/card/Card.jsx';
+import Card from '@/components/Card/Card.jsx';
 import Search from '@/components/Search/Search.jsx';
 import Sort from '@/components/sort/Sort';
 
