@@ -1,0 +1,186 @@
+.profile_container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 60px 40px 60px;
+}
+
+/* .profile_container > .title_wrapper {
+  width: 180px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+.profile_container > .title_wrapper > .title {
+  margin-bottom: 200px;
+}
+.profile_content_wrapper {
+  flex: 1;
+  height: 100px;
+} */
+
+.description_content_wrapper {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  gap: 60px;
+}
+
+.description_content_wrapper > .bakcground_decoration {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  border-radius: 20px;
+
+  background-image: url('https://www.zmo.ai/wp-content/uploads/2023/09/dark-prism-textured-abstract-background.jpg');
+}
+
+.description_content_wrapper > .bakcground_decoration > .profile_image {
+  width: 90px;
+  height: 90px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -25px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.description_content_wrapper > .bakcground_decoration > .profile_image > img {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background-color: #1f1f1f;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+
+.description_content_wrapper > .profile-description {
+  width: 100%;
+  padding: 30px 20px;
+}
+
+.description_content_wrapper > .profile-description > div > .profile-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.description_content_wrapper
+  > .profile-description
+  > div
+  > div
+  > .profile-email {
+  font-size: 14px;
+  color: gray;
+  font-weight: 300;
+}
+
+/*! profile_settings  */
+.profile_settings {
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.profile_settings > nav {
+  height: 100%;
+}
+
+.profile_settings > nav > ul {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  height: 100%;
+}
+
+.profile_settings > nav > ul > li {
+  list-style: none;
+}
+
+/*! account_settings */
+.account_settings {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.account_settings > form {
+  margin: 0 auto;
+  width: 100%;
+}
+
+form > .label_wrapper {
+  position: relative;
+  height: 30px;
+  width: 70%;
+  margin: 40px 0;
+  width: 100%;
+}
+
+form > .label_wrapper > label {
+  margin-bottom: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
+  background-color: white;
+  transform: translateY(-20%);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+form > .label_wrapper > input {
+  margin-top: 5px;
+  padding: 10px 16px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+    0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 8px;
+  outline: none;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+form > .buttons_wrapper {
+  margin-bottom: 40px;
+  display: flex;
+  gap: 30px;
+}
+
+form > .buttons_wrapper > button {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+form > .buttons_wrapper > button:hover {
+  background-color: black;
+  color: #faf8f1;
+  transition: all 0.5s;
+}
