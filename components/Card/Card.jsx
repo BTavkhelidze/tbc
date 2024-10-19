@@ -15,8 +15,8 @@ const Card = ({ productsObj }) => {
     <div className={style.card}>
       <div className={style.image_wrapper}>
         <Image
-          width={30}
-          height={30}
+          width={300}
+          height={200}
           alt={productsObj.title}
           src={productsObj.images[0]}
         />
