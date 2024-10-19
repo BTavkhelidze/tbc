@@ -6,12 +6,13 @@ const Profile = () => {
     <main className={style.profile_container}>
       <section className={style.description_content_wrapper}>
         <div className={style.bakcground_decoration}>
-          <div className={style.profile_image}>
+          {/* <div className={style.profile_image}>
             <Image
+              className={style.prof_img}
               src='https://ssl.gstatic.com/onebox/media/sports/photos/ufc/3605_rZmNsA_96x96.png'
               alt='profile image'
             />
-          </div>
+          </div> */}
         </div>
         <div className={style.profile_description}>
           <div>

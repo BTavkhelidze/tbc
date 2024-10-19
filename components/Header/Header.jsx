@@ -3,6 +3,7 @@ import style from './Header.module.css';
 import Image from 'next/image';
 
 import Link from 'next/link';
+import NavLink from '../Nav-Link/Nav-Link';
 const Header = () => {
   return (
     <header className={style.header_container_wrapper}>
@@ -12,17 +13,17 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link href='/products'>Home</Link>
+              <NavLink href='/products'>Home</NavLink>
             </li>
             <li>
-              <Link href='/about'>About</Link>
+              <NavLink href='/about'>About</NavLink>
             </li>
             <li>
-              <Link href='/contact'>Contact</Link>
+              <NavLink href='/contact'>Contact</NavLink>
             </li>
 
             <li>
-              <Link href='/blog'>Blogs</Link>
+              <NavLink href='/blog'>Blogs</NavLink>
             </li>
           </ul>
         </nav>
@@ -31,6 +32,8 @@ const Header = () => {
           <div className={style.profile_wrapper}>
             <Link href='/profile'>
               <Image
+                width={20}
+                height={20}
                 src='https://www.svgrepo.com/show/43426/profile.svg'
                 alt=''
               />

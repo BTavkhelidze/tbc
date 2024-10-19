@@ -14,7 +14,12 @@ const Card = ({ productsObj }) => {
   return (
     <div className={style.card}>
       <div className={style.image_wrapper}>
-        <Image alt='Blink Video Doorbell' src={productsObj.images[0]} />
+        <Image
+          width={30}
+          height={30}
+          alt={productsObj.title}
+          src={productsObj.images[0]}
+        />
       </div>
       <div className={style.card_desc_wrapper}>
         <h1 className={style.title}>{productsObj.title}</h1>

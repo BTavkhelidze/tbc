@@ -24,17 +24,37 @@ export default async function Product({ params }) {
     <main className={style.product_container}>
       <div className={style.wrapper_img_details}>
         <div className={style.product_image_wrapper}>
-          <Image alt={product.description} src={product.images[0]} />
+          <Image
+            alt={product.description}
+            src={product.images[0]}
+            width={300}
+            height={300}
+          />
 
           <div className={style.other_pictures}>
             {product.images.length > 0 && (
-              <Image alt={product.description} src={product.images[0]} />
+              <Image
+                alt={product.description}
+                src={product.images[0]}
+                width={50}
+                height={50}
+              />
             )}
             {product.images.length > 1 && (
-              <Image alt={product.description} src={product.images[1]} />
+              <Image
+                alt={product.description}
+                src={product.images[1]}
+                width={50}
+                height={50}
+              />
             )}
             {product.images.length > 2 && (
-              <Image alt={product.description} src={product.images[2]} />
+              <Image
+                alt={product.description}
+                src={product.images[2]}
+                width={50}
+                height={50}
+              />
             )}
           </div>
         </div>
@@ -81,6 +101,8 @@ export default async function Product({ params }) {
                 <Image
                   src='https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-1024.png'
                   alt='Customer'
+                  width={20}
+                  height={20}
                 />
                 <p>{review.reviewerName}</p>
               </div>

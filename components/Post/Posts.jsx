@@ -20,6 +20,8 @@ const Posts = ({ post }) => {
           <span className={`${style.reactions} ${style.like}`}>
             <Image
               className={style.reactions_image}
+              width={20}
+              height={20}
               src='https://www.svgrepo.com/show/1198/like.svg'
               alt='likes button'
             />
@@ -29,6 +31,8 @@ const Posts = ({ post }) => {
             {post.reactions.dislikes}
             <Image
               className={style.reactions_image}
+              width={20}
+              height={20}
               src='https://www.svgrepo.com/show/504867/show-youtube-dislikes.svg'
               alt='dislikes button'
             />

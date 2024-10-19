@@ -25,7 +25,7 @@ async function getProducts(search, order) {
 }
 
 const Products = async ({ searchParams }) => {
-  const search = searchParams?.search || ''; // Fallback to empty string
+  const search = searchParams?.search || '';
   const order = searchParams?.order || 'default';
 
   const products = await getProducts(search, order);
