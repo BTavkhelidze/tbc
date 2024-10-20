@@ -1,5 +1,5 @@
 export const sessionStatus = async () => {
-    const session = false; 
+    const session = true; 
     return session; 
   };
   

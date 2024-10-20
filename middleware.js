@@ -3,7 +3,7 @@ import { sessionStatus } from './components/utils/session';
 
 export async function middleware(request) {
   const session = await sessionStatus(); 
-  const publicPaths = ['/', '/home', '/contact', '/signIn','signUp', '/about']; 
+  const publicPaths = ['/', '/home', '/contact', '/signIn','/signUp', '/about']; 
   const pathname = request.nextUrl.pathname;
 
   console.log('Middleware triggered');
