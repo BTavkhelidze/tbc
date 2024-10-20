@@ -12,8 +12,11 @@ const Header = () => {
         {/* navigation from layout.jsx */}
         <nav>
           <ul>
+          <li>
+              <NavLink href='/home'>Home</NavLink>
+            </li>
             <li>
-              <NavLink href='/products'>Home</NavLink>
+              <NavLink href='/products'>Products</NavLink>
             </li>
             <li>
               <NavLink href='/about'>About</NavLink>
@@ -39,9 +42,16 @@ const Header = () => {
               />
             </Link>
           </div>
-          <p>Sign In</p>
-
-          <p>Sign Up</p>
+          <nav>
+          <ul>
+          <li>
+              <NavLink href='/signIn'>SignIn</NavLink>
+            </li>
+            <li>
+              <NavLink href='/signUp'>SignUp</NavLink>
+            </li>
+          </ul>
+        </nav>
         </div>
       </div>
     </header>

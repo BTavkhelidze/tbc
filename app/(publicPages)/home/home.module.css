@@ -1,0 +1,120 @@
+.home_container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 60px;
+}
+
+/* Banner Section */
+.banner_section {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 20px;
+  border: 1px solid black;
+  gap: 20px;
+}
+
+.banner_image {
+  flex: 1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.banner_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner_text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.welcome_message {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.intro_text {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Features Section */
+.features_section {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.features_title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.features_list {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+/* Contact Section */
+.contact_section {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.input_wrapper {
+  margin-bottom: 20px;
+}
+
+.input_wrapper label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.input_wrapper input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.buttons_wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.buttons_wrapper button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.buttons_wrapper button:hover {
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s;
+}
