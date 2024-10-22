@@ -1,76 +1,137 @@
+'use client';
+import { useEffect, useState } from 'react';
 import style from './Profile.module.css';
 import Image from 'next/image';
 
 const Profile = () => {
+  const [userData, setUserData] = useState(null); // State to store user data
+  const [error, setError] = useState(null); // State to store error
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken'); // Get token from localStorage
+    console.log('Token:', token);
+
+    const getAuthUser = async () => {
+      if (!token) {
+        setError(' please log in.');
+        return;
+      }
+
+      try {
+        const res = await fetch('https://dummyjson.com/users/me', {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`, // Pass JWT via Authorization header
+          },
+          // credentials: 'include', // Include cookies (e.g., accessToken) in the request
+        });
+
+        if (!res.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+
+        const data = await res.json();
+        setUserData(data); // Set the user data in state
+        console.log('User data:', data);
+      } catch (error) {
+        setError(error.message);
+        console.error('Error fetching authenticated user:', error);
+      }
+    };
+
+    getAuthUser();
+  }, []);
+
   return (
     <main className={style.profile_container}>
-      <section className={style.description_content_wrapper}>
-        <div className={style.bakcground_decoration}>
-          {/* <div className={style.profile_image}>
-            <Image
-              className={style.prof_img}
-              src='https://ssl.gstatic.com/onebox/media/sports/photos/ufc/3605_rZmNsA_96x96.png'
-              alt='profile image'
-            />
-          </div> */}
-        </div>
-        <div className={style.profile_description}>
-          <div>
-            <h2 className={style.profile_name}>Ilia Topuria</h2>
-            <div>
-              <span className={style.profile_email}>
-                Email: elmatadortopuria@gmail.com
-              </span>
+      {error && <p className={style.error_message}>{error}</p>}{' '}
+      {/* Display error message */}
+      {userData ? (
+        <>
+          <section className={style.description_content_wrapper}>
+            <div className={style.bakcground_decoration}>
+              <div className={style.profile_image}>
+                <Image
+                  className={style.prof_img}
+                  src={
+                    userData.image ||
+                    'https://ssl.gstatic.com/onebox/media/sports/photos/ufc/3605_rZmNsA_96x96.png'
+                  }
+                  alt='profile image'
+                  width={96}
+                  height={96}
+                />
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section className={style.profile_settings}>
-        <nav>
-          <ul>
-            <li>Account settings</li>
-            <li>Manage password</li>
-            <li>Order history</li>
-            <li>Address</li>
-            <li>Notification</li>
-          </ul>
-        </nav>
-      </section>
-      <section className={style.account_settings}>
-        <form>
-          <div className={style.label_wrapper}>
-            <label htmlFor='username'>First Name</label>
-            <input type='text' id='username' placeholder='Ilia' />
-          </div>
-          <div className={style.label_wrapper}>
-            <label htmlFor='username'>Last Name</label>
-            <input type='text' id='username' placeholder='Topuria' />
-          </div>
+            <div className={style.profile_description}>
+              <div>
+                <h2 className={style.profile_name}>
+                  {`${userData.firstName} ${userData.lastName}`}
+                </h2>
+                <div>
+                  <span className={style.profile_email}>
+                    Email: {userData.email}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
 
-          <div className={style.label_wrapper}>
-            <label htmlFor='email'>Email</label>
-            <input
-              type='text'
-              id='email'
-              placeholder='elmatadortopuria@gmail.com'
-            />
-          </div>
+          <section className={style.profile_settings}>
+            <nav>
+              <ul>
+                <li>Account settings</li>
+                <li>Manage password</li>
+                <li>Order history</li>
+                <li>Address</li>
+                <li>Notification</li>
+              </ul>
+            </nav>
+          </section>
 
-          <div className={style.label_wrapper}>
-            <label htmlFor='secondname'>Phone Number</label>
-            <input
-              type='tel'
-              id='secondname'
-              required
-              placeholder='(+987) 123 456 789'
-            />
-          </div>
-          <div className={style.buttons_wrapper}>
-            <button type='submit'>Cancel</button>
-            <button type='submit'>Update</button>
-          </div>
-        </form>
-      </section>
+          <section className={style.account_settings}>
+            <form>
+              <div className={style.label_wrapper}>
+                <label htmlFor='firstName'>First Name</label>
+                <input
+                  type='text'
+                  id='firstName'
+                  placeholder={userData.firstName}
+                />
+              </div>
+              <div className={style.label_wrapper}>
+                <label htmlFor='lastName'>Last Name</label>
+                <input
+                  type='text'
+                  id='lastName'
+                  placeholder={userData.lastName}
+                />
+              </div>
+
+              <div className={style.label_wrapper}>
+                <label htmlFor='email'>Email</label>
+                <input type='text' id='email' placeholder={userData.email} />
+              </div>
+
+              <div className={style.label_wrapper}>
+                <label htmlFor='phoneNumber'>Phone Number</label>
+                <input
+                  type='tel'
+                  id='phoneNumber'
+                  required
+                  placeholder='(+987) 123 456 789'
+                />
+              </div>
+              <div className={style.buttons_wrapper}>
+                <button type='submit'>Cancel</button>
+                <button type='submit'>Update</button>
+              </div>
+            </form>
+          </section>
+        </>
+      ) : (
+        !error && <p>Loading user data...</p>
+      )}
     </main>
   );
 };
