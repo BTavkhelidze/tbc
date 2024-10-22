@@ -5,8 +5,7 @@ import Link from 'next/link';
 
 const NavLink = ({ href, children }) => {
   const path = usePathname();
-  console.log(path);
-  console.log('es', href);
+
   return (
     <>
       {' '}
