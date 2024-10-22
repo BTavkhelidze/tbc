@@ -47,7 +47,7 @@ export default function page() {
         </div>
         <div className={styles.sign_up_link}>
           <p>
-            Don't have account ? <Link href='/signUp'>Sign Up</Link>
+            Do not have account ? <Link href='/signUp'>Sign Up</Link>
           </p>
         </div>
       </form>
