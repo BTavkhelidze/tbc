@@ -17,7 +17,7 @@ export default function CreateBlog({ blogs }) {
 
   return (
     <>
-      <button onClick={() => setCreateBlog(true)}>Edit Blog</button>
+      <button onClick={() => setCreateBlog(true)}>Create Blog</button>
       {createBlog && <BlogModal isNew={true} blogs={data || blogs} />}
     </>
   );
