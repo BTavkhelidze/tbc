@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import style from "./Card.module.css";
 import Image from "next/image";
 
-const Card = ({ productsObj }) => {
+const Card = ({ product }) => {
   const router = useRouter();
 
   const handleClick = (id) => {
@@ -20,15 +20,15 @@ const Card = ({ productsObj }) => {
         <Image
           width={300}
           height={200}
-          alt={productsObj.title}
-          src={productsObj?.images?.[0] || defaultImagePath}
+          alt={product.title}
+          src={product?.images?.[0] || defaultImagePath}
         />
       </div>
       <div className={style.card_desc_wrapper}>
-        <h1 className={style.title}>{productsObj.title}</h1>
+        <h1 className={style.title}>{product.title}</h1>
         <div className={style.price_wrapper}>
-          <p className={style.price}>{productsObj.price}$</p>
-          <button onClick={() => handleClick(productsObj.id)} type="button">
+          <p className={style.price}>{product.price}$</p>
+          <button onClick={() => handleClick(product.id)} type="button">
             More
           </button>
         </div>
