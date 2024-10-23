@@ -1,0 +1,15 @@
+.BlogModal__wrapper {
+  z-index: 10000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.BlogModal {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+}

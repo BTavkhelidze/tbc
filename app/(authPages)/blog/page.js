@@ -1,10 +1,11 @@
-import Posts from '@/components/Post/Posts';
-import style from './Blogs.module.css';
+import Posts from "@/components/Post/Posts";
+import style from "./Blogs.module.css";
+import EditBlogBtn from "@/components/BlogBtns/EditBlogBtn";
 
 export default async function Blogs({ searchParams }) {
-  console.log('search', searchParams);
-  console.log('hello');
-  let sortBy = '';
+  console.log("search", searchParams);
+  console.log("hello");
+  let sortBy = "";
   let order;
   const query = await fetch(
     `https://dummyjson.com/posts?sortBy=title&order=asc`
@@ -13,6 +14,7 @@ export default async function Blogs({ searchParams }) {
 
   return (
     <main className={style.blogs_container}>
+      <EditBlogBtn />
       <section className={style.title_wrapper}>
         <h1 className={style.title}>Blogs</h1>
       </section>
