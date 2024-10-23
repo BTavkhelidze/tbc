@@ -1,5 +1,5 @@
-import style from './singleProduct.module.css';
-import Image from 'next/image';
+import style from "./singleProduct.module.css";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   const res = await fetch(`https://dummyjson.com/products`);
@@ -99,8 +99,8 @@ export default async function Product({ params }) {
             <div className={style.review_wrapper} key={i}>
               <div className={style.customer}>
                 <Image
-                  src='https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-1024.png'
-                  alt='Customer'
+                  src="https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-1024.png"
+                  alt="Customer"
                   width={20}
                   height={20}
                 />

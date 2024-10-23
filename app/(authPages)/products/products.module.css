@@ -27,3 +27,48 @@
   display: flex;
   padding: 30px 60px;
 }
+
+/* add product */
+.addProductForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.addProductForm input {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.addProductForm button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.addProductForm button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.addProductForm button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.addProductForm button[type="button"] {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.addProductForm button[type="button"]:hover {
+  background-color: #e53935;
+}
