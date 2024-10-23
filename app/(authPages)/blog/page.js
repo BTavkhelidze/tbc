@@ -1,6 +1,7 @@
 import Posts from "@/components/Post/Posts";
 import style from "./Blogs.module.css";
 import BlogsLocalStorage from "@/components/BlogsLocalStorage/BlogsLocalSorage";
+import CreateBlog from "@/components/CreateBlog/CreateBlog";
 export default async function Blogs({ searchParams }) {
   let sortBy = "";
   let order;
@@ -13,6 +14,7 @@ export default async function Blogs({ searchParams }) {
     <main className={style.blogs_container}>
       <section className={style.title_wrapper}>
         <h1 className={style.title}>Blogs</h1>
+        <CreateBlog blogs={posts} isNew={true} />
       </section>
       <section className={style.blogs}>
         <BlogsLocalStorage>

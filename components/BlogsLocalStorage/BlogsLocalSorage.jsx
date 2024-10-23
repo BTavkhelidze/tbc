@@ -13,6 +13,7 @@ export default function BlogsLocalStorage({ children }) {
       setStoredData(JSON.parse(dataFromLocalStorage));
     }
   }, []);
+  console.log(storedData);
 
   return (
     <>

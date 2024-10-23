@@ -1,8 +1,8 @@
 "use client"; //
 import { useState } from "react";
 import "./BlogModal.css";
-export default function BlogModal({ blog, blogs }) {
-  const [blogBody, setBlogBody] = useState(blog.body);
+export default function BlogModal({ blog, blogs, isNew = false }) {
+  const [blogBody, setBlogBody] = useState(blog?.body || null);
 
   //handle textarea change
   const handleInputChange = (e) => {
@@ -20,14 +20,26 @@ export default function BlogModal({ blog, blogs }) {
 
   //save edited Blog functionality
   function saveBlog() {
-    const updatedBlogs = blogs.map((b) => {
-      console.log(b.id, blog.id);
-      if (b.id !== blog.id) {
-        return b;
-      } else {
-        return { ...blog, body: blogBody };
-      }
-    });
+    console.log(isNew);
+    let updatedBlogs = [];
+    if (isNew) {
+      // if the create blog button is pressed
+      const id = blogs.length + 1;
+      const body = blogBody;
+      const reactions = { likes: 0, dislikes: 0 };
+      const newBlog = { id, body, reactions };
+      updatedBlogs = [newBlog, ...blogs];
+      console.log(newBlog, updatedBlogs);
+    } else {
+      // if edited and then saved
+      updatedBlogs = blogs.map((b) => {
+        if (b.id !== blog.id) {
+          return b;
+        } else {
+          return { ...blog, body: blogBody };
+        }
+      });
+    }
 
     // Update localStorage with the new blogs
     localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
@@ -36,6 +48,12 @@ export default function BlogModal({ blog, blogs }) {
   }
 
   //create Blog functionality
+  function createBlog() {
+    // Update localStorage with the new blogs
+    localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
+    //refresh page to get UpdatedBlogs
+    window.location.reload();
+  }
 
   return (
     <div className="BlogModal__wrapper">
@@ -44,7 +62,7 @@ export default function BlogModal({ blog, blogs }) {
         <textarea
           name="blog-body"
           id="blog-body"
-          value={blogBody}
+          value={blogBody ? blogBody : ""}
           onChange={handleInputChange}
         ></textarea>
         <div className="blog-btns">
