@@ -14,6 +14,8 @@ export default function BlogModal({ blog, blogs }) {
     const updatedBlogs = blogs.filter((b) => b.id !== blog.id);
     // Update localStorage with the new blogs
     localStorage.setItem("blogs", JSON.stringify(updatedBlogs));
+    //refresh page to get UpdatedBlogs
+    window.location.reload();
   }
 
   //save edited Blog functionality
@@ -33,6 +35,8 @@ export default function BlogModal({ blog, blogs }) {
     window.location.reload();
   }
 
+  //create Blog functionality
+
   return (
     <div className="BlogModal__wrapper">
       <div className="BlogModal">
@@ -44,9 +48,13 @@ export default function BlogModal({ blog, blogs }) {
           onChange={handleInputChange}
         ></textarea>
         <div className="blog-btns">
-          <button onClick={saveBlog}>save btn</button>
+          <button className="save" onClick={saveBlog}>
+            Save
+          </button>
 
-          <button onClick={deleteBlog}>delete btn</button>
+          <button className="delete" onClick={deleteBlog}>
+            Delete
+          </button>
         </div>
       </div>
     </div>
