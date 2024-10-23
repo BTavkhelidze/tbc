@@ -1,7 +1,6 @@
 import Posts from "@/components/Post/Posts";
 import style from "./Blogs.module.css";
 import BlogsLocalStorage from "@/components/BlogsLocalStorage/BlogsLocalSorage";
-import { checkLocalStorage } from "@/components/utils/checkLocalStorage";
 export default async function Blogs({ searchParams }) {
   let sortBy = "";
   let order;
@@ -16,11 +15,11 @@ export default async function Blogs({ searchParams }) {
         <h1 className={style.title}>Blogs</h1>
       </section>
       <section className={style.blogs}>
-        {checkLocalStorage ? (
-          <BlogsLocalStorage />
-        ) : (
-          posts.map((post) => <Posts key={post.id} post={post} blogs={posts} />)
-        )}
+        <BlogsLocalStorage>
+          {posts.map((post) => (
+            <Posts key={post.id} post={post} blogs={posts} />
+          ))}
+        </BlogsLocalStorage>
       </section>
       <section className={style.free_wrapper}>
         <h1 className={style.title}>Advertising space</h1>
