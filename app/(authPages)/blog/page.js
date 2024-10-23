@@ -13,7 +13,6 @@ export default async function Blogs({ searchParams }) {
   return (
     <main className={style.blogs_container}>
       <section className={style.title_wrapper}>
-        <BlogsLocalStorage />
         <h1 className={style.title}>Blogs</h1>
       </section>
       <section className={style.blogs}>
