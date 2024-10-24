@@ -1,9 +1,10 @@
-// 'use client';
 import style from './Header.module.css';
 import Image from 'next/image';
-
+import { signOut } from '@/app/lib/actions';
 import Link from 'next/link';
 import NavLink from '../Nav-Link/Nav-Link';
+
+
 const Header = () => {
   return (
     <header className={style.header_container_wrapper}>
@@ -44,7 +45,10 @@ const Header = () => {
           </div>
           <nav>
           <ul>
-          <li>
+            <li>
+              <button onClick={signOut}>Sign Out</button>
+            </li>
+            <li>
               <NavLink href='/signIn'>SignIn</NavLink>
             </li>
             <li>
