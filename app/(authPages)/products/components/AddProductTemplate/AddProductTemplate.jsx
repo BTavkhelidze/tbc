@@ -21,10 +21,10 @@ export default function AddProductTemplate({
 
     const productToAdd = {
       id: new Date().getTime(), // Unique ID for the new product
-      title: newProduct.name,
+      title: newProduct.title,
       description: newProduct.description,
-      brand: newProduct.brand,
       price: parseFloat(newProduct.price),
+      brand: newProduct.brand,
     };
 
     const updatedProducts = [...products, productToAdd];
@@ -60,9 +60,9 @@ export default function AddProductTemplate({
           <input
             type="text"
             placeholder="Product Name"
-            value={newProduct.name}
+            value={newProduct.title}
             onChange={(e) =>
-              setNewProduct({ ...newProduct, name: e.target.value })
+              setNewProduct({ ...newProduct, title: e.target.value })
             }
             required
           />

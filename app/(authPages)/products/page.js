@@ -44,7 +44,7 @@ const Products = ({ searchParams }) => {
       if (cachedProducts) {
         // If products are found in localStorage, use them
         setProducts(JSON.parse(cachedProducts));
-        console.log(cachedProducts);
+        // console.log(cachedProducts);
 
         console.log("Loaded from localStorage");
       } else {

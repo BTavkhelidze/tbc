@@ -31,6 +31,9 @@ const Card = ({ product }) => {
           <button onClick={() => handleClick(product.id)} type="button">
             More
           </button>
+          <button onClick={() => handleClick(product.id)} type="button">
+            Delete
+          </button>
         </div>
       </div>
     </div>
