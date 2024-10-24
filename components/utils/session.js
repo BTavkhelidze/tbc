@@ -1,4 +1,4 @@
-export async function sessionStatus() {
-  const session = true; 
-  return session;
+export function sessionStatus() {
+  const token = localStorage.getItem('accessToken');
+  return token !== null; 
 }

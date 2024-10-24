@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import styles from './signIn.module.css';
-
 import { authenticate } from '@/app/lib/actions';
 
-export default function page() {
+export default function SignIn() {
   return (
     <div className={styles.box}>
       <div className={styles.box_header}>
-        <h5 className={styles.header_title}>LogIn</h5>
+        <h5 className={styles.header_title}>Log In</h5>
       </div>
       <form action={authenticate}>
         <div className={styles.input_box}>
@@ -47,7 +46,7 @@ export default function page() {
         </div>
         <div className={styles.sign_up_link}>
           <p>
-            Do not have account ? <Link href='/signUp'>Sign Up</Link>
+            Do not have an account? <Link href='/signUp'>Sign Up</Link>
           </p>
         </div>
       </form>

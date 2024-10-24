@@ -2,18 +2,19 @@
 import { useEffect, useState } from 'react';
 import style from './Profile.module.css';
 import Image from 'next/image';
+import { signOut } from '@/app/lib/actions';
 
 const Profile = () => {
-  const [userData, setUserData] = useState(null); // State to store user data
-  const [error, setError] = useState(null); // State to store error
+  const [userData, setUserData] = useState(null); 
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
-    const token = localStorage.getItem('accessToken'); // Get token from localStorage
+    const token = localStorage.getItem('accessToken'); 
     console.log('Token:', token);
 
     const getAuthUser = async () => {
       if (!token) {
-        setError(' please log in.');
+        setError('Please log in.');
         return;
       }
 
@@ -21,9 +22,8 @@ const Profile = () => {
         const res = await fetch('https://dummyjson.com/users/me', {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${token}`, // Pass JWT via Authorization header
+            Authorization: `Bearer ${token}`, 
           },
-          // credentials: 'include', // Include cookies (e.g., accessToken) in the request
         });
 
         if (!res.ok) {
@@ -31,7 +31,7 @@ const Profile = () => {
         }
 
         const data = await res.json();
-        setUserData(data); // Set the user data in state
+        setUserData(data); 
         console.log('User data:', data);
       } catch (error) {
         setError(error.message);
@@ -44,12 +44,11 @@ const Profile = () => {
 
   return (
     <main className={style.profile_container}>
-      {error && <p className={style.error_message}>{error}</p>}{' '}
-      {/* Display error message */}
+      {error && <p className={style.error_message}>{error}</p>}
       {userData ? (
         <>
           <section className={style.description_content_wrapper}>
-            <div className={style.bakcground_decoration}>
+            <div className={style.background_decoration}>
               <div className={style.profile_image}>
                 <Image
                   className={style.prof_img}
@@ -85,6 +84,9 @@ const Profile = () => {
                 <li>Order history</li>
                 <li>Address</li>
                 <li>Notification</li>
+                <li>
+                  <button onClick={signOut}>Sign Out</button>
+                </li>
               </ul>
             </nav>
           </section>
@@ -123,7 +125,7 @@ const Profile = () => {
                 />
               </div>
               <div className={style.buttons_wrapper}>
-                <button type='submit'>Cancel</button>
+                <button type='button' onClick={signOut}>Cancel</button>
                 <button type='submit'>Update</button>
               </div>
             </form>
