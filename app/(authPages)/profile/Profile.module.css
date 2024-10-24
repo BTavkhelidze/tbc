@@ -115,7 +115,15 @@
 .profile_settings > nav > ul > li {
   list-style: none;
 }
-
+.profile_settings button {
+  background-color: #007bff; 
+  color: white;
+  border: none; 
+  border-radius: 10px; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  cursor: pointer; 
+}
 /*! account_settings */
 .account_settings {
   width: 100%;
