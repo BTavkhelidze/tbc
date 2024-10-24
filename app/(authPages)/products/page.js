@@ -34,7 +34,6 @@ const Products = ({ searchParams }) => {
   const order = searchParams?.order || "default";
 
   useEffect(() => {
-    // Function to check localStorage and fetch products if needed
     async function getProducts() {
       // Check if products exist in localStorage for the current search and order
       const cachedProducts = localStorage.getItem(
@@ -42,7 +41,6 @@ const Products = ({ searchParams }) => {
       );
 
       if (cachedProducts) {
-        // If products are found in localStorage, use them
         setProducts(JSON.parse(cachedProducts));
         // console.log(cachedProducts);
 

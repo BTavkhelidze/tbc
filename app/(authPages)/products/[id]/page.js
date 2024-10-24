@@ -1,9 +1,10 @@
-"use client"; // Make this a client-side component
+"use client";
 
 import { useEffect, useState } from "react";
 import style from "./singleProduct.module.css";
 import Image from "next/image";
 import DeleteProduct from "../components/DeleteProduct/DeleteProduct";
+import EditProductTemplate from "../components/EditProductTemplate/EditProductTemplate.jsx";
 
 export async function fetchProductFromAPI(id) {
   const res = await fetch(`https://dummyjson.com/products/${id}`);
@@ -15,8 +16,8 @@ export async function fetchProductFromAPI(id) {
 }
 
 export default function Product({ params }) {
-  const [product, setProduct] = useState(null); // State to hold product data
-  const [loading, setLoading] = useState(true); // State to track loading
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Retrieve 'products__default' from localStorage and parse it
@@ -31,15 +32,13 @@ export default function Product({ params }) {
       );
 
       if (foundProduct) {
-        // If the product is found, set it to state
         setProduct(foundProduct);
         setLoading(false);
       } else {
-        // If product is not found in localStorage, fetch it from the API
         fetchProductFromAPI(params.id).then((data) => {
           setProduct(data); // Update the product state
           setLoading(false);
-          // Store the updated list in localStorage
+
           const updatedProducts = [...storedProducts, data];
           localStorage.setItem(
             "products__default",
@@ -48,11 +47,10 @@ export default function Product({ params }) {
         });
       }
     } else {
-      // If 'products__default' is not in localStorage, fetch from the API
       fetchProductFromAPI(params.id).then((data) => {
         setProduct(data); // Update the product state
         setLoading(false);
-        // Store the newly fetched product in 'products__default' in localStorage
+
         localStorage.setItem(
           "products__default",
           JSON.stringify([data]) // Initialize with the first product
@@ -61,7 +59,6 @@ export default function Product({ params }) {
     }
   }, [params.id]);
 
-  // Show a loading state while fetching product data
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -128,7 +125,10 @@ export default function Product({ params }) {
           </div>
         </div>
         <div className={style.add_to_cart_wrapper}>
-          <DeleteProduct productId={params.id} />
+          <div>
+            <DeleteProduct productId={params.id} />
+            <EditProductTemplate productId={params.id} />
+          </div>
           <p className={style.price}>${product.price}</p>
           <p className={style.shipping}>{product.shippingInformation}</p>
           {product.stock > 0 ? (
