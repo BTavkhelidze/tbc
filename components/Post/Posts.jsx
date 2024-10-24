@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import style from './Posts.module.css';
-import Image from 'next/image';
+import { useRouter } from "next/navigation";
+import style from "./Posts.module.css";
+import Image from "next/image";
+import { EditBlogBtn } from "@/components/BlogBtns/BlogBtns";
 
-const Posts = ({ post }) => {
+const Posts = ({ post, blogs }) => {
   const router = useRouter();
 
   const handleClick = (id) => {
@@ -22,8 +23,8 @@ const Posts = ({ post }) => {
               className={style.reactions_image}
               width={20}
               height={20}
-              src='https://www.svgrepo.com/show/1198/like.svg'
-              alt='likes button'
+              src="https://www.svgrepo.com/show/1198/like.svg"
+              alt="likes button"
             />
             {post.reactions.likes}
           </span>
@@ -33,14 +34,15 @@ const Posts = ({ post }) => {
               className={style.reactions_image}
               width={20}
               height={20}
-              src='https://www.svgrepo.com/show/504867/show-youtube-dislikes.svg'
-              alt='dislikes button'
+              src="https://www.svgrepo.com/show/504867/show-youtube-dislikes.svg"
+              alt="dislikes button"
             />
           </span>
         </div>
-        <button onClick={() => handleClick(post.id)} type='button'>
+        <button onClick={() => handleClick(post.id)} type="button">
           See More
         </button>
+        <EditBlogBtn blog={post} blogs={blogs} />
       </div>
     </div>
   );
