@@ -1,5 +1,4 @@
-export const sessionStatus = async () => {
-    const session = true; 
-    return session; 
-  };
-  
+export async function sessionStatus() {
+  const session = true; 
+  return session;
+}
