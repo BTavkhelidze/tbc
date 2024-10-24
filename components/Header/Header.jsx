@@ -48,12 +48,6 @@ const Header = () => {
             <li>
               <button onClick={signOut}>Sign Out</button>
             </li>
-            <li>
-              <NavLink href='/signIn'>SignIn</NavLink>
-            </li>
-            <li>
-              <NavLink href='/signUp'>SignUp</NavLink>
-            </li>
           </ul>
         </nav>
         </div>

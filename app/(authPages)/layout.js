@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../globals.css';
 import { sessionStatus } from '../../components/utils/session';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+
 
 export default function AuthLayout({ children }) {
   const router = useRouter();
@@ -26,7 +29,9 @@ export default function AuthLayout({ children }) {
 
   return (
     <div className={styles.layoutContainer}>
+      <Header />
       {children}
+      <Footer />
     </div>
   );
 }
