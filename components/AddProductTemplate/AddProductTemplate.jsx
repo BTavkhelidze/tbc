@@ -1,6 +1,6 @@
-import React from "react";
-import "./AddProductTemplate.css";
-import { useState } from "react";
+import React from 'react';
+import styles from './AddProductTemplate.module.css';
+import { useState } from 'react';
 
 export default function AddProductTemplate({
   products,
@@ -10,10 +10,10 @@ export default function AddProductTemplate({
 }) {
   const [showForm, setShowForm] = useState(false);
   const [newProduct, setNewProduct] = useState({
-    title: "",
-    description: "",
-    price: "",
-    brand: "",
+    title: '',
+    description: '',
+    price: '',
+    brand: '',
   });
 
   const handleFormSubmit = (e) => {
@@ -37,29 +37,26 @@ export default function AddProductTemplate({
     );
 
     // Reset form and close the modal
-    setNewProduct({ title: "", description: "", price: "", brand: "" });
+    setNewProduct({ title: '', description: '', price: '', brand: '' });
     setShowForm(false);
   };
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <button className="addButton" onClick={() => setShowForm(true)}>
+      <div className={styles.main_Button_div}>
+        <button className={styles.addButton} onClick={() => setShowForm(true)}>
           Add Product
         </button>
       </div>
 
       {showForm && (
-        <form className="addProductForm" onSubmit={handleFormSubmit}>
+        <form
+          className={`${styles.overlay__wrapper} ${styles.addProductForm}`}
+          onSubmit={handleFormSubmit}
+        >
           <input
-            type="text"
-            placeholder="Product Name"
+            type='text'
+            placeholder='Product Name'
             value={newProduct.title}
             onChange={(e) =>
               setNewProduct({ ...newProduct, title: e.target.value })
@@ -67,8 +64,8 @@ export default function AddProductTemplate({
             required
           />
           <input
-            type="text"
-            placeholder="Product Description"
+            type='text'
+            placeholder='Product Description'
             value={newProduct.description}
             onChange={(e) =>
               setNewProduct({ ...newProduct, description: e.target.value })
@@ -76,8 +73,8 @@ export default function AddProductTemplate({
             required
           />
           <input
-            type="text"
-            placeholder="Product Brand"
+            type='text'
+            placeholder='Product Brand'
             value={newProduct.brand}
             onChange={(e) =>
               setNewProduct({ ...newProduct, brand: e.target.value })
@@ -85,16 +82,22 @@ export default function AddProductTemplate({
             required
           />
           <input
-            type="number"
-            placeholder="Product Price"
+            type='number'
+            placeholder='Product Price'
             value={newProduct.price}
             onChange={(e) =>
               setNewProduct({ ...newProduct, price: e.target.value })
             }
             required
           />
-          <button type="submit">Add Product</button>
-          <button type="button" onClick={() => setShowForm(false)}>
+          <button className={styles.button} type='submit'>
+            Add Product
+          </button>
+          <button
+            className={styles.button}
+            type='button'
+            onClick={() => setShowForm(false)}
+          >
             Cancel
           </button>
         </form>

@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import style from "./products.module.css";
-import Card from "@/components/Card/Card.jsx";
-import Search from "@/components/Search/Search.jsx";
-import Sort from "@/components/sort/Sort";
-import { useEffect, useState } from "react";
-import AddProductTemplate from "./components/AddProductTemplate/AddProductTemplate";
+import style from './products.module.css';
+import Card from '@/components/Card/Card.jsx';
+import Search from '@/components/Search/Search.jsx';
+import Sort from '@/components/sort/Sort';
+import { useEffect, useState } from 'react';
+import AddProductTemplate from '@/components/AddProductTemplate/AddProductTemplate';
 
 async function fetchProducts(search, order) {
   let res;
 
-  if (!search && order && order !== "default") {
+  if (!search && order && order !== 'default') {
     res = await fetch(
       `https://dummyjson.com/products?sortBy=price&order=${order}`
     );
-  } else if (search && order && order !== "default") {
+  } else if (search && order && order !== 'default') {
     res = await fetch(
       `https://dummyjson.com/products/search?q=${search}&sortBy=price&order=${order}`
     );
   } else if (search) {
     res = await fetch(`https://dummyjson.com/products/search?q=${search}`);
   } else {
-    res = await fetch("https://dummyjson.com/products");
+    res = await fetch('https://dummyjson.com/products');
   }
 
   const data = await res.json();
@@ -30,8 +30,8 @@ async function fetchProducts(search, order) {
 
 const Products = ({ searchParams }) => {
   const [products, setProducts] = useState([]);
-  const search = searchParams?.search || "";
-  const order = searchParams?.order || "default";
+  const search = searchParams?.search || '';
+  const order = searchParams?.order || 'default';
 
   useEffect(() => {
     async function getProducts() {
@@ -44,7 +44,7 @@ const Products = ({ searchParams }) => {
         setProducts(JSON.parse(cachedProducts));
         // console.log(cachedProducts);
 
-        console.log("Loaded from localStorage");
+        console.log('Loaded from localStorage');
       } else {
         // Otherwise, fetch from the API and store in localStorage
         const fetchedProducts = await fetchProducts(search, order);
@@ -53,7 +53,7 @@ const Products = ({ searchParams }) => {
           `products_${search}_${order}`,
           JSON.stringify(fetchedProducts)
         );
-        console.log("Fetched products from API and saved to localStorage");
+        console.log('Fetched products from API and saved to localStorage');
       }
     }
 
@@ -64,15 +64,14 @@ const Products = ({ searchParams }) => {
     <main>
       <div className={style.search_wrapper}>
         <Search />
+        <AddProductTemplate
+          products={products}
+          setProducts={setProducts}
+          search={search}
+          order={order}
+        />
         <Sort />
       </div>
-
-      <AddProductTemplate
-        products={products}
-        setProducts={setProducts}
-        search={search}
-        order={order}
-      />
 
       <div className={style.content_container}>
         {!products || products.length < 1 ? (

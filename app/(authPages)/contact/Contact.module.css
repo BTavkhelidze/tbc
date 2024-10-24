@@ -87,6 +87,7 @@
   padding: 3px;
   padding-left: 10px;
   font-size: 16px;
+  color: black;
 }
 
 .contact_container .contact_wrapper .submit_form form button {
@@ -117,4 +118,5 @@
   border-radius: 4px;
   border: 1px solid black;
   padding: 20px 10px 10px;
+  color: black;
 }
