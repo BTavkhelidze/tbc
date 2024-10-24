@@ -1,7 +1,5 @@
 import localFont from 'next/font/local';
 import './globals.css';
-import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
 import { Suspense } from 'react';
 import Loading from './loading';
 
@@ -26,9 +24,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div className='main_container'>
-          <Header />
           <Suspense fallback={<Loading />}>{children}</Suspense>
-          <Footer />
         </div>
       </body>
     </html>
