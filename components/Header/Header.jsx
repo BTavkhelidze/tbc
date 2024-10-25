@@ -4,7 +4,6 @@ import { signOut } from '@/app/lib/actions';
 import Link from 'next/link';
 import NavLink from '../Nav-Link/Nav-Link';
 
-
 const Header = () => {
   return (
     <header className={style.header_container_wrapper}>
@@ -13,9 +12,6 @@ const Header = () => {
         {/* navigation from layout.jsx */}
         <nav>
           <ul>
-          <li>
-              <NavLink href='/home'>Home</NavLink>
-            </li>
             <li>
               <NavLink href='/products'>Products</NavLink>
             </li>
@@ -43,13 +39,15 @@ const Header = () => {
               />
             </Link>
           </div>
-          <nav>
-          <ul>
-            <li>
-              <button onClick={signOut}>Sign Out</button>
-            </li>
-          </ul>
-        </nav>
+
+          <button className={style.button} onClick={signOut}>
+            <Image
+              width={30}
+              height={30}
+              src='https://www.svgrepo.com/show/18970/logout.svg'
+              alt='log out'
+            />
+          </button>
         </div>
       </div>
     </header>

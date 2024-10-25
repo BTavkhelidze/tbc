@@ -125,7 +125,7 @@ export default function Product({ params }) {
           </div>
         </div>
         <div className={style.add_to_cart_wrapper}>
-          <div>
+          <div className={style.delete_edit_btn_wrapepr}>
             <DeleteProduct productId={params.id} />
             <EditProductTemplate productId={params.id} />
           </div>

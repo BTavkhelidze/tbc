@@ -30,6 +30,8 @@ export default function CreateBlog({ blogs }) {
           isNew={true}
           blogs={data || blogs}
           onClose={handleCloseModal}
+          title={'Create Blog'}
+          delateBtn={false}
         />
       )}
     </>

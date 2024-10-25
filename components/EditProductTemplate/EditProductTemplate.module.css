@@ -1,0 +1,11 @@
+.editBtnWrapper {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.editBtnWrapper button {
+  color: white;
+  padding: 4px 6px;
+}

@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import "./EditProductTemplate.css";
-import { useRouter } from "next/navigation"; // Next.js router for navigation
+import React, { useState, useEffect } from 'react';
+import styles from './EditProductTemplate.module.css';
+import { useRouter } from 'next/navigation'; // Next.js router for navigation
 
 export default function EditProductTemplate({ productId }) {
   const router = useRouter();
 
   const [showForm, setShowForm] = useState(false);
   const [editedProduct, setEditedProduct] = useState({
-    title: "",
-    description: "",
-    price: "",
-    brand: "",
+    title: '',
+    description: '',
+    price: '',
+    brand: '',
   });
 
   // Function to fetch product from localStorage and update state
   const fetchProductData = () => {
-    const storedData = JSON.parse(localStorage.getItem("products__default"));
+    const storedData = JSON.parse(localStorage.getItem('products__default'));
 
     if (storedData && Array.isArray(storedData)) {
       const productToEdit = storedData.find(
@@ -40,7 +40,7 @@ export default function EditProductTemplate({ productId }) {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const storedData = JSON.parse(localStorage.getItem("products__default"));
+    const storedData = JSON.parse(localStorage.getItem('products__default'));
 
     if (storedData && Array.isArray(storedData)) {
       const productIndex = storedData.findIndex(
@@ -58,7 +58,7 @@ export default function EditProductTemplate({ productId }) {
           brand: editedProduct.brand,
         };
 
-        localStorage.setItem("products__default", JSON.stringify(storedData));
+        localStorage.setItem('products__default', JSON.stringify(storedData));
 
         setShowForm(false);
         fetchProductData();
@@ -68,15 +68,9 @@ export default function EditProductTemplate({ productId }) {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div className={styles.editBtnWrapper}>
         <button
-          className="editButton"
+          className={styles.editButton}
           onClick={() => (showForm ? setShowForm(false) : setShowForm(true))}
         >
           Edit Product
@@ -84,10 +78,10 @@ export default function EditProductTemplate({ productId }) {
       </div>
 
       {showForm && (
-        <form className="addProductForm" onSubmit={handleFormSubmit}>
+        <form className='addProductForm' onSubmit={handleFormSubmit}>
           <input
-            type="text"
-            placeholder="Product Name"
+            type='text'
+            placeholder='Product Name'
             value={editedProduct.title}
             onChange={(e) =>
               setEditedProduct({ ...editedProduct, title: e.target.value })
@@ -95,8 +89,8 @@ export default function EditProductTemplate({ productId }) {
             required
           />
           <input
-            type="text"
-            placeholder="Product Description"
+            type='text'
+            placeholder='Product Description'
             value={editedProduct.description}
             onChange={(e) =>
               setEditedProduct({
@@ -107,8 +101,8 @@ export default function EditProductTemplate({ productId }) {
             required
           />
           <input
-            type="text"
-            placeholder="Product Brand"
+            type='text'
+            placeholder='Product Brand'
             value={editedProduct.brand}
             onChange={(e) =>
               setEditedProduct({ ...editedProduct, brand: e.target.value })
@@ -116,16 +110,16 @@ export default function EditProductTemplate({ productId }) {
             required
           />
           <input
-            type="number"
-            placeholder="Product Price"
+            type='number'
+            placeholder='Product Price'
             value={editedProduct.price}
             onChange={(e) =>
               setEditedProduct({ ...editedProduct, price: e.target.value })
             }
             required
           />
-          <button type="submit">Save Changes</button>
-          <button type="button" onClick={() => setShowForm(false)}>
+          <button type='submit'>Save Changes</button>
+          <button type='button' onClick={() => setShowForm(false)}>
             Cancel
           </button>
         </form>

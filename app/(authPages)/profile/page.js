@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { signOut } from '@/app/lib/actions';
 
 const Profile = () => {
-  const [userData, setUserData] = useState(null); 
-  const [error, setError] = useState(null); 
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem('accessToken'); 
+    const token = localStorage.getItem('accessToken');
     console.log('Token:', token);
 
     const getAuthUser = async () => {
@@ -22,7 +22,7 @@ const Profile = () => {
         const res = await fetch('https://dummyjson.com/users/me', {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${token}`, 
+            Authorization: `Bearer ${token}`,
           },
         });
 
@@ -31,11 +31,9 @@ const Profile = () => {
         }
 
         const data = await res.json();
-        setUserData(data); 
-        console.log('User data:', data);
+        setUserData(data);
       } catch (error) {
         setError(error.message);
-        console.error('Error fetching authenticated user:', error);
       }
     };
 
@@ -95,24 +93,16 @@ const Profile = () => {
             <form>
               <div className={style.label_wrapper}>
                 <label htmlFor='firstName'>First Name</label>
-                <input
-                  type='text'
-                  id='firstName'
-                  placeholder={userData.firstName}
-                />
+                <input type='text' id='firstName' value={userData.firstName} />
               </div>
               <div className={style.label_wrapper}>
                 <label htmlFor='lastName'>Last Name</label>
-                <input
-                  type='text'
-                  id='lastName'
-                  placeholder={userData.lastName}
-                />
+                <input type='text' id='lastName' value={userData.lastName} />
               </div>
 
               <div className={style.label_wrapper}>
                 <label htmlFor='email'>Email</label>
-                <input type='text' id='email' placeholder={userData.email} />
+                <input type='text' id='email' value={userData.email} />
               </div>
 
               <div className={style.label_wrapper}>
@@ -121,11 +111,11 @@ const Profile = () => {
                   type='tel'
                   id='phoneNumber'
                   required
-                  placeholder='(+987) 123 456 789'
+                  value='(+987) 123 456 789'
                 />
               </div>
               <div className={style.buttons_wrapper}>
-                <button type='button' onClick={signOut}>Cancel</button>
+                <button type='button'>Cancel</button>
                 <button type='submit'>Update</button>
               </div>
             </form>

@@ -1,14 +1,15 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import styles from './DeleteProduct.module.css';
 
 const DeleteProduct = ({ productId }) => {
   const router = useRouter();
 
   const handleDelete = () => {
     const storedProducts = JSON.parse(
-      localStorage.getItem("products__default")
+      localStorage.getItem('products__default')
     );
 
     if (storedProducts) {
@@ -17,25 +18,16 @@ const DeleteProduct = ({ productId }) => {
       );
 
       localStorage.setItem(
-        "products__default",
+        'products__default',
         JSON.stringify(updatedProducts)
       );
 
-      router.push("/products");
+      router.push('/products');
     }
   };
 
   return (
-    <button
-      onClick={handleDelete}
-      style={{
-        padding: "10px",
-        backgroundColor: "red",
-        color: "white",
-        border: "none",
-        cursor: "pointer",
-      }}
-    >
+    <button onClick={handleDelete} className={styles.button}>
       Delete Product
     </button>
   );

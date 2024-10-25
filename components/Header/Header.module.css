@@ -60,7 +60,6 @@
   color: black;
   font-size: 16px;
   font-weight: 500;
-  
 }
 .header_container div {
   display: flex;
@@ -95,4 +94,9 @@
 .header_container div .profile_wrapper a img {
   width: 34px;
   height: 34px;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
 }

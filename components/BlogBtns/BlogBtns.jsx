@@ -12,7 +12,12 @@ export function EditBlogBtn({ blog, blogs, onClose }) {
     <>
       <button onClick={() => setEditBlog(true)}>Edit Blog</button>
       {editBlog && (
-        <BlogModal blog={blog} blogs={blogs} onClose={handleCloseModal} />
+        <BlogModal
+          blog={blog}
+          blogs={blogs}
+          onClose={handleCloseModal}
+          title='Edit Blog'
+        />
       )}
     </>
   );

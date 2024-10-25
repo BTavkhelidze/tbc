@@ -27,7 +27,7 @@ export default function AddProductTemplate({
       brand: newProduct.brand,
     };
 
-    const updatedProducts = [...products, productToAdd];
+    const updatedProducts = [productToAdd, ...products];
     setProducts(updatedProducts);
 
     // Update localStorage with the new product

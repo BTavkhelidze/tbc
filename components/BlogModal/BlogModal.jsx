@@ -2,7 +2,14 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './BlogModal.module.css';
 
-export default function BlogModal({ blog, blogs, isNew = false, onClose }) {
+export default function BlogModal({
+  blog,
+  blogs,
+  isNew = false,
+  onClose,
+  title,
+  delateBtn = true,
+}) {
   const [blogBody, setBlogBody] = useState(blog?.body || null);
   const modalRef = useRef();
 
@@ -64,7 +71,7 @@ export default function BlogModal({ blog, blogs, isNew = false, onClose }) {
   return (
     <div className={styles.BlogModal__wrapper}>
       <div className={styles.BlogModal} ref={modalRef}>
-        <h1 style={{ textAlign: 'center', paddingTop: '20px' }}>Edit Blog</h1>
+        <h1 style={{ textAlign: 'center', paddingTop: '20px' }}> {title}</h1>
         <textarea
           name='blog-body'
           id='blog-body'
@@ -76,9 +83,11 @@ export default function BlogModal({ blog, blogs, isNew = false, onClose }) {
           <button className={styles.button} onClick={saveBlog}>
             Save
           </button>
-          <button className={styles.button} onClick={deleteBlog}>
-            Delete
-          </button>
+          {delateBtn && (
+            <button className={styles.button} onClick={deleteBlog}>
+              Delete
+            </button>
+          )}
         </div>
       </div>
     </div>

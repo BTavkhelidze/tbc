@@ -116,13 +116,13 @@
   list-style: none;
 }
 .profile_settings button {
-  background-color: #007bff; 
+  background-color: #007bff;
   color: white;
-  border: none; 
-  border-radius: 10px; 
-  padding: 10px 20px; 
-  font-size: 16px; 
-  cursor: pointer; 
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 /*! account_settings */
 .account_settings {
@@ -172,7 +172,8 @@ form > .label_wrapper > input {
   border-radius: 8px;
   outline: none;
   padding-left: 10px;
-  font-size: 16px;
+  font-size: 14px;
+  color: black;
 }
 
 form > .buttons_wrapper {
