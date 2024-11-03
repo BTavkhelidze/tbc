@@ -45,7 +45,7 @@
   background-image: url('https://www.zmo.ai/wp-content/uploads/2023/09/dark-prism-textured-abstract-background.jpg');
 }
 
-.description_content_wrapper > .bakcground_decoration > .profile_image {
+.profile_image {
   width: 90px;
   height: 90px;
   background-color: black;
@@ -59,10 +59,7 @@
   border: 1px solid black;
 }
 
-.description_content_wrapper
-  > .bakcground_decoration
-  > .profile_image
-  > .prof_img {
+.prof_img {
   width: 85px;
   height: 85px;
   border-radius: 50%;

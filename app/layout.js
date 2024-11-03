@@ -3,6 +3,10 @@ import './globals.css';
 import { Suspense } from 'react';
 import Loading from './loading';
 
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
   variable: '--font-geist-sans',
@@ -22,11 +26,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className='main_container'>
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-        </div>
-      </body>
+      <UserProvider>
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <div className='main_container'>
+            <Header />
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+            <Footer />
+          </div>
+        </body>
+      </UserProvider>
     </html>
   );
 }

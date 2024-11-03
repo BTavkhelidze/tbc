@@ -1,10 +1,11 @@
+import Products from '../products/page';
 import style from './home.module.css';
 import Image from 'next/image';
 
 const Home = () => {
   return (
     <main className={style.home_container}>
-      <section className={style.banner_section}>
+      {/* <section className={style.banner_section}>
         <div className={style.banner_text}>
           <h2 className={style.welcome_message}>Welcome to Our Website</h2>
           <p className={style.intro_text}>
@@ -39,7 +40,8 @@ const Home = () => {
             <button type='button'>Cancel</button>
           </div>
         </form>
-      </section>
+      </section> */}
+      <Products />
     </main>
   );
 };
