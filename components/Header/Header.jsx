@@ -35,30 +35,30 @@ const Header = () => {
           {user ? (
             <>
               <div className={style.profile_wrapper}>
-                <Link href='/profile'>
+                <a href='/profile'>
                   <Image
                     width={20}
                     height={20}
                     src='https://www.svgrepo.com/show/43426/profile.svg'
                     alt=''
                   />
-                </Link>
+                </a>
               </div>
 
               <button className={style.button}>
-                <Link href='api/auth/logout'>
+                <a href='api/auth/logout'>
                   <Image
                     width={30}
                     height={30}
                     src='https://www.svgrepo.com/show/18970/logout.svg'
                     alt='log out'
                   />
-                </Link>
+                </a>
               </button>
             </>
           ) : (
             <button className={style.button}>
-              <Link href='/api/auth/login'>Log in</Link>
+              <a href='/api/auth/login'>Log in</a>
             </button>
           )}
         </div>
