@@ -24,19 +24,19 @@
   gap: 40px;
 }
 
-.btn_reactions_wrapper > button {
+.btn_reactions_wrapper > .button {
   max-width: 400px;
   width: 100%;
   margin-right: 10px;
   padding: 14px 16px;
-  background-color: white;
+
   border: none;
   cursor: pointer;
-  color: black;
+
   border: 1px solid black;
 }
 
-.btn_reactions_wrapper > button:hover {
+.btn_reactions_wrapper > .button:hover {
   background-color: black;
   color: #faf8f1;
   transition: all 0.5s;
@@ -49,7 +49,7 @@
   align-items: center;
   display: flex;
   gap: 10px;
-  background-color: white;
+
   padding: 5px 10px;
   border: 1px solid black;
 }

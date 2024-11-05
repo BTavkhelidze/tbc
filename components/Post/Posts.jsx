@@ -15,11 +15,11 @@ const Posts = ({ post, blogs }) => {
 
   return (
     <div className={style.post_wrapper}>
-      <p>{post.body}</p>
+      <p className='dark:text-[#E2E8F0]'>{post.body}</p>
 
       <div className={style.btn_reactions_wrapper}>
-        <div className={style.reactions_wrapper}>
-          <span className={`${style.reactions} ${style.like}`}>
+        <div className={`${style.reactions_wrapper} dark:bg-[#E2E8F0]`}>
+          <span className={`${style.reactions} ${style.like} `}>
             <Image
               className={style.reactions_image}
               width={20}
@@ -40,7 +40,11 @@ const Posts = ({ post, blogs }) => {
             />
           </span>
         </div>
-        <button onClick={() => handleClick(post.id)} type='button'>
+        <button
+          onClick={() => handleClick(post.id)}
+          type='button'
+          className={`${style.button} bg-white dark:bg-[#E2E8F0]`}
+        >
           See More
         </button>
         <EditBlogBtn blog={post} blogs={blogs} />

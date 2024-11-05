@@ -13,7 +13,11 @@ const NavLink = ({ href, children }) => {
         href={href}
         className={path.startsWith(href) ? style.active : undefined}
       >
-        <p className={path.startsWith(href) ? style.text : undefined}>
+        <p
+          className={`${
+            path.startsWith(href) ? style.text : undefined
+          } dark:text-[#E2E8F0]`}
+        >
           {children}
         </p>
       </Link>

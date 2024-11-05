@@ -19,14 +19,13 @@
   width: 400px;
 }
 
-.box label input {
+.input {
   width: 0;
   outline: none;
   border: none;
   font-weight: 500;
   transition: 0.8s;
   background: transparent;
-  color: black;
 }
 
 .icon {

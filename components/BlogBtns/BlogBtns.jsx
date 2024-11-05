@@ -10,7 +10,13 @@ export function EditBlogBtn({ blog, blogs, onClose }) {
   };
   return (
     <>
-      <button onClick={() => setEditBlog(true)}>Edit Blog</button>
+      {/*  padding: 14px 16px; */}
+      <button
+        onClick={() => setEditBlog(true)}
+        className={`w-[240px] bg-white dark:bg-[#E2E8F0] px-[12px] py-[14px]`}
+      >
+        Edit Blog
+      </button>
       {editBlog && (
         <BlogModal
           blog={blog}

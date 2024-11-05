@@ -22,7 +22,10 @@ export default function CreateBlog({ blogs }) {
 
   return (
     <>
-      <button className={styles.button} onClick={() => setCreateBlog(true)}>
+      <button
+        className={`${styles.button} dark:bg-[#E2E8F0]`}
+        onClick={() => setCreateBlog(true)}
+      >
         Create Blog
       </button>
       {createBlog && (

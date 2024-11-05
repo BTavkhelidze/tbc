@@ -61,7 +61,7 @@ const Products = ({ searchParams }) => {
   }, [search, order]);
 
   return (
-    <main>
+    <main className='dark:bg-[#0F172A]'>
       <div className={style.search_wrapper}>
         <Search />
         <AddProductTemplate

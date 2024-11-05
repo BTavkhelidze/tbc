@@ -1,12 +1,10 @@
 .footer_container_wrapper {
   width: 100%;
-  border-top: 1px solid black;
   bottom: 0;
-
-  background-color: white !important;
 }
 .footer_container {
   max-width: 1440px;
+  border-top: 1px solid #0ea5e9;
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;

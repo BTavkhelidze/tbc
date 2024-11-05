@@ -13,21 +13,17 @@ export default function BlogModal({
   const [blogBody, setBlogBody] = useState(blog?.body || null);
   const modalRef = useRef();
 
-  // Handle textarea change
   const handleInputChange = (e) => {
     setBlogBody(e.target.value);
   };
 
-  // Delete blog functionality
   function deleteBlog() {
     const updatedBlogs = blogs.filter((b) => b.id !== blog.id);
-    // Update localStorage with the new blogs
+
     localStorage.setItem('blogs', JSON.stringify(updatedBlogs));
-    // Refresh page to get UpdatedBlogs
     window.location.reload();
   }
 
-  // Save edited Blog functionality
   function saveBlog() {
     let updatedBlogs = [];
     if (isNew) {
@@ -46,13 +42,11 @@ export default function BlogModal({
       });
     }
 
-    // Update localStorage with the new blogs
     localStorage.setItem('blogs', JSON.stringify(updatedBlogs));
-    // Refresh page to get UpdatedBlogs
+
     window.location.reload();
   }
 
-  // Close modal on clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -60,31 +54,38 @@ export default function BlogModal({
       }
     };
 
-    // Bind the event listener
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      // Unbind the event listener on cleanup
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [onClose]);
 
   return (
     <div className={styles.BlogModal__wrapper}>
-      <div className={styles.BlogModal} ref={modalRef}>
-        <h1 style={{ textAlign: 'center', paddingTop: '20px' }}> {title}</h1>
+      <div
+        className={`${styles.BlogModal} dark:bg-[#0F172A] bg-[#e2e8f0]`}
+        ref={modalRef}
+      >
+        <h1 className='text-center pt-[20px] dark:text-[#E2E8F0]'> {title}</h1>
         <textarea
           name='blog-body'
           id='blog-body'
           value={blogBody || ''}
-          className={styles.textArea}
+          className={`${styles.textArea} dark:bg-[#1E293B] bg-white text-black dark:text-[#E2E8F0] outline-none  border-black border  dark:border-[#1D2537]`}
           onChange={handleInputChange}
         ></textarea>
         <div className={styles.blog_btns}>
-          <button className={styles.button} onClick={saveBlog}>
+          <button
+            className={`${styles.button} bg-white text-black dark:text-[#E2E8F0]  dark:bg-[#1E293B]  border  border-black dark:border-[#E2E8]`}
+            onClick={saveBlog}
+          >
             Save
           </button>
           {delateBtn && (
-            <button className={styles.button} onClick={deleteBlog}>
+            <button
+              className={`${styles.button} bg-white  dark:bg-[#E2E8F0]`}
+              onClick={deleteBlog}
+            >
               Delete
             </button>
           )}
