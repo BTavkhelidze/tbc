@@ -48,6 +48,7 @@ const Header = () => {
                     height={20}
                     src='https://www.svgrepo.com/show/43426/profile.svg'
                     alt=''
+                    className='dark:bg-[#E2E8F0]'
                   />
                 </a>
               </div>
@@ -59,6 +60,7 @@ const Header = () => {
                     height={30}
                     src='https://www.svgrepo.com/show/18970/logout.svg'
                     alt='log out'
+                    className='dark:bg-[#E2E8F0]'
                   />
                 </a>
               </button>

@@ -7,6 +7,7 @@ const nextConfig = {
       'cdn1.iconfinder.com',
       'dummyjson.com',
       'lh3.googleusercontent.com',
+      'encrypted-tbn0.gstatic.com',
     ], // Add the hostname here
   },
   async redirects() {

@@ -141,12 +141,23 @@ export default function ProfileClient() {
 
   return (
     user && (
-      <div className='px-[60px] py-[30px]'>
-        <div className=' mb-[50px]'>
-          <Image src={user.picture} alt={user.name} width={80} height={80} />
+      <div className='px-[60px] py-[30px] bg-white dark:bg-[#0F172A]'>
+        <div className=' mb-[50px] rounded-3xl overflow-hidden'>
+          <Image
+            src={user.picture}
+            alt={user.name}
+            width={80}
+            height={80}
+            className='rounded-full'
+          />
         </div>
-        <h2 className='text-[16px] font-semibold mb-3'> {user.name}</h2>
-        <p className='text-[14px] '>{user.email}</p>
+        <h2 className='text-[16px] font-semibold mb-3 dark:text-[#E2E8F0] text-black'>
+          {' '}
+          {user.name}
+        </h2>
+        <p className='text-[14px] dark:text-[#E2E8F0] text-black'>
+          {user.email}
+        </p>
       </div>
     )
   );
