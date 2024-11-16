@@ -8,32 +8,55 @@ import NavLink from '../Nav-Link/Nav-Link';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import ToggleBtn from './toggleBtn';
 
-const Header = () => {
-  const { user } = useUser();
-  console.log(user);
+import { useTranslations } from 'next-intl';
+import LanguageDropdown from '../LanguageDropdown';
 
+const Header = ({ locale }) => {
+  const { user } = useUser();
+
+  const t = useTranslations('NavbarLinks');
+
+  const handleLogin = () => {
+    // Redirect to /{locale}/products after login
+    window.location.href = `/api/auth/login`;
+  };
+
+  const navLinks = [
+    {
+      id: 1,
+      href: '/products',
+      text: t('products'),
+    },
+    {
+      id: 2,
+      href: '/about',
+      text: t('about'),
+    },
+    {
+      href: '/contact',
+      text: t('contact'),
+      id: 3,
+    },
+    {
+      href: '/blog',
+      text: t('blog'),
+      id: 4,
+    },
+  ];
   return (
-    <header
-      className={`${style.header_container_wrapper} dark:bg-[#0F172A] border-b-[#0EA5E9] `}
-    >
+    <header className={`${style.header_container_wrapper} dark:bg-[#0F172A]  `}>
       <div className={style.header_container}>
         <nav>
-          <ul>
-            <li>
-              <NavLink href='/products' className='text-red-500'>
-                Products
-              </NavLink>
-            </li>
-            <li>
-              <NavLink href='/about'>About</NavLink>
-            </li>
-            <li>
-              <NavLink href='/contact'>Contact</NavLink>
-            </li>
-
-            <li>
-              <NavLink href='/blog'>Blogs</NavLink>
-            </li>
+          <ul className='flex'>
+            {navLinks.map((link) => {
+              return (
+                <li key={link.id}>
+                  <NavLink href={link.href} locale={locale}>
+                    {link.text}
+                  </NavLink>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -42,7 +65,7 @@ const Header = () => {
           {user ? (
             <>
               <div className={style.profile_wrapper}>
-                <a href='/profile'>
+                <Link href={`/${locale}/profile`}>
                   <Image
                     width={20}
                     height={20}
@@ -50,11 +73,11 @@ const Header = () => {
                     alt=''
                     className='dark:bg-[#E2E8F0]'
                   />
-                </a>
+                </Link>
               </div>
 
               <button className={style.button}>
-                <a href='api/auth/logout'>
+                <Link href={`/api/auth/logout`}>
                   <Image
                     width={30}
                     height={30}
@@ -62,16 +85,18 @@ const Header = () => {
                     alt='log out'
                     className='dark:bg-[#E2E8F0]'
                   />
-                </a>
+                </Link>
               </button>
             </>
           ) : (
-            <button className={style.button}>
-              <a href='/api/auth/login' className='dark:text-[#E2E8F0]'>
-                Log in
-              </a>
+            <button
+              className='bg-transparent dark:text-[#E2E8F0]'
+              onClick={handleLogin}
+            >
+              Log in
             </button>
           )}
+          <LanguageDropdown />
         </div>
       </div>
     </header>

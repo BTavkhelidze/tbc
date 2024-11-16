@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDebounce } from './useDebounce';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import searchIcon from '@/assets/icons8-search.svg';
+// import searchIcon from '@/assets/icons8-search.svg';
 import style from './Search.module.css';
 
 const Search = () => {

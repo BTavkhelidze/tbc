@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -8,17 +12,18 @@ const nextConfig = {
       'dummyjson.com',
       'lh3.googleusercontent.com',
       'encrypted-tbn0.gstatic.com',
+      's.gravatar.com',
     ], // Add the hostname here
   },
   async redirects() {
     return [
       {
         source: '/',
-        destination: '/products',
+        destination: '/en/products',
         permanent: true,
       },
     ];
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

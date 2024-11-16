@@ -1,12 +1,13 @@
 .headerContainerWrapper {
   width: 100%;
-  border-bottom: 1px solid black;
+
   z-index: 100;
 }
 
 .header_container_wrapper {
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #0ea5e9;
+
   z-index: 100;
 }
 .header_container {
@@ -53,14 +54,14 @@
 .header_container nav ul li:hover::after {
   width: 100%;
 }
-.header_container button {
+/* .header_container button {
   cursor: pointer;
   position: relative;
   text-decoration: none;
   color: black;
   font-size: 16px;
   font-weight: 500;
-}
+} */
 .header_container div {
   display: flex;
   gap: 10px;
@@ -68,13 +69,13 @@
   align-items: center;
 }
 
-.header_container div p {
+/* .header_container div p {
   padding: 8px 10px;
   border-radius: 10px;
   cursor: pointer;
   border: 1px solid black;
   transition: all 0.5s;
-}
+} */
 
 .header_container div p:hover {
   background-color: black;

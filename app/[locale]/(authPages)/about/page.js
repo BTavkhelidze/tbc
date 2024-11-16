@@ -3,20 +3,14 @@ import style from './About.module.css';
 const About = () => {
   return (
     <main className='w-full dark:bg-[#0F172A]'>
-      <div
-        className={`${style.about_container} dark:bg-[#0F172A] mx-auto mt-[50px]`}
-      >
+      <div className={`${style.about_container} dark:bg-[#0F172A] mx-auto`}>
         <section className={style.title_wrapper}>
           <h1 className='dark:text-[#E2E8F0]  mb-[20px] text-black'>
             {' '}
             About US
           </h1>
         </section>
-        {/*  text-align: center;
-  background-color: none;
-  padding: 50px;
-  line-height: 24px;
-  border-radius: 12px; */}
+
         <section className={style.aU_description_wrapper}>
           <p className='text-center leading-[24px] dark:text-[#E2E8F0]  mb-[20px] text-black '>
             Welcome to our online shoping website, your one-stop online shopping

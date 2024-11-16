@@ -1,0 +1,11 @@
+{
+  "NavbarLinks": {
+    "products": "პროდუქტები",
+    "about": "ჩვენ შესახებ",
+    "contact": "კონტაქტი",
+    "blog": "ბლოგი"
+  },
+  "Auth": {
+    "LogIn": "Log In"
+  }
+}
